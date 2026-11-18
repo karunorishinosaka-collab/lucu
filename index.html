@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アジアン雑貨ルチュ 全商品｜LINEで「これ欲しい」</title>
+<meta name="description" content="奈良・生駒のアジアン雑貨ルチュ。ネパールやタイの服と雑貨を、写真を見ながらLINEで注文・取り置きできます。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://baseec-img-mng.akamaized.net">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F6F1E8;--paper:#FBF8F2;--ink:#3A2E26;--soft:#7A6A5D;--line:#D9CFC1;--acc:#9C3B2A;--green:#06C755}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;font-size:21px;line-height:1.8;letter-spacing:.02em}
+  .min{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
+  .hero{position:relative}
+  .hero video{display:block;width:100%;height:70vh;max-height:680px;min-height:420px;object-fit:cover;background:#2a201a}
+  .hero .cap{position:absolute;left:0;right:0;bottom:0;padding:90px 22px 26px;background:linear-gradient(180deg,rgba(20,14,10,0),rgba(20,14,10,.65));color:#FBF8F2}
+  .hero .shop{font-size:17px;letter-spacing:.3em}
+  .hero h1{margin:6px 0 0;font-size:38px;line-height:1.45}
+  main{max-width:640px;margin:0 auto;padding:0 16px 30px}
+  .lead{margin:28px 6px 6px;font-size:21px}
+  .how{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 6px;margin:22px 0}
+  .how h2{margin:0 0 4px;font-size:25px}
+  .how ol{margin:0;padding-left:1.3em}
+  .ship{background:#fff;border:2px solid var(--green);border-radius:14px;padding:14px 16px;margin:0 0 18px;text-align:center}
+  .ship .t{font-size:24px;font-weight:700;margin:0}
+  .ship .t b{color:var(--green)}
+  .ship .s{font-size:18px;color:var(--soft);margin:4px 0 0}
+  .note{background:var(--paper);border-left:3px solid var(--acc);padding:14px 16px;margin:0 0 18px}
+  .note h3{margin:0 0 4px;font-size:23px}
+  .note p{margin:0;font-size:20px}
+  .tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding:12px 16px;margin:0 -16px;scrollbar-width:none;border-bottom:1px solid var(--line)}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{flex:0 0 auto;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:12px 20px;font-size:21px;font-family:inherit;font-weight:700}
+  .tabs button.on{background:var(--ink);color:#FBF8F2}
+  .search{display:block;width:100%;margin:14px 0 4px;padding:16px;font-size:21px;border:2px solid var(--line);border-radius:12px;background:#fff;font-family:inherit}
+  .count{font-size:18px;color:var(--soft);margin:6px 2px 10px}
+  .item{background:#fff;border-radius:14px;margin:0 0 30px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+  .gal{position:relative}
+  .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:#e9e2d6}
+  .strip::-webkit-scrollbar{display:none}
+  .strip img{flex:0 0 100%;width:100%;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:start;display:block}
+  .pc{position:absolute;right:10px;bottom:10px;background:rgba(30,20,14,.7);color:#fff;font-size:17px;border-radius:999px;padding:2px 12px}
+  .off{position:absolute;top:10px;left:10px;background:var(--acc);color:#fff;font-size:16px;font-weight:700;padding:2px 10px;border-radius:20px}
+  .arw{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.85);color:var(--ink);font-size:28px;line-height:52px;padding:0;font-family:inherit}
+  .arw.l{left:8px}.arw.r{right:8px}
+  .hint{font-size:16px;color:var(--soft);text-align:center;margin:6px 0 0}
+  .bd{padding:10px 16px 18px}
+  .bd .nm{font-size:23px;line-height:1.5;margin:4px 0 0;font-weight:700}
+  .bd .pr{font-size:26px;font-weight:700;margin:2px 0 0}
+  .sf{display:block;font-size:16px;color:var(--soft);margin:0}
+  .sf.free{color:var(--green);font-weight:700}
+  .var{margin:12px 0 0}
+  .var .vt{font-size:19px;font-weight:700;margin:0 2px 6px}
+  .var .vb{display:flex;flex-wrap:wrap;gap:8px}
+  .var button{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:12px;padding:10px 14px;font-size:19px;font-family:inherit}
+  .var button.on{border-color:var(--green);background:#E9F9EF;font-weight:700}
+  .var .vn{font-size:15px;color:var(--soft);margin:6px 2px 0}
+  .btn{display:block;text-align:center;text-decoration:none;font-weight:700;border-radius:16px;padding:20px 10px;margin-top:12px;font-size:25px;line-height:1.4;font-family:inherit;width:100%;cursor:pointer}
+  .btn.line{background:var(--green);color:#fff;border:none}
+  .btn.line small{display:block;font-size:19px;font-weight:500}
+  .btn .ico{display:inline-block;background:#fff;color:var(--green);font-size:19px;font-weight:700;border-radius:8px;padding:2px 10px;margin-right:10px;vertical-align:2px;letter-spacing:0}
+  .btn.sub{background:#fff;color:var(--ink);border:2px solid var(--ink);font-size:21px;padding:14px 10px}
+  .more{display:block;width:100%;margin:10px 0 0;padding:20px;border:2px solid var(--ink);background:transparent;border-radius:999px;font-size:23px;font-weight:700;font-family:inherit;color:var(--ink)}
+  .sheet{position:fixed;inset:0;z-index:20;background:rgba(30,20,14,.55);display:none}
+  .sheet.open{display:block}
+  .sheet .box{position:absolute;left:0;right:0;bottom:0;top:3vh;max-width:640px;margin:0 auto;background:var(--paper);border-radius:18px 18px 0 0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .sheet .close{position:sticky;top:0;z-index:3;display:flex;justify-content:flex-end;padding:8px;background:var(--paper)}
+  .sheet .close button{border:none;background:var(--ink);color:#fff;font-size:22px;border-radius:999px;padding:12px 24px;font-family:inherit}
+  .sheet .in{padding:10px 20px 34px}
+  .sheet .nm{font-size:28px;font-weight:700;margin:0;line-height:1.45}
+  .sheet .pr{font-size:28px;font-weight:700;margin:0}
+  .sheet .d{white-space:pre-line;margin:12px 0}
+  .shopbox{text-align:center;margin:40px 0 0;padding:28px 6px;border-top:1px solid var(--line)}
+  .shopbox h2{font-size:29px;margin:0 0 8px}
+  .shopbox p{margin:2px 0}
+  footer{text-align:center;font-size:15px;color:var(--soft);padding:20px 10px 40px}
+  .loading{text-align:center;padding:40px 0;color:var(--soft)}
+</style>
+</head>
+<body>
+<section class="hero">
+  <video autoplay muted loop playsinline poster="img/tennai2.jpg" src="img/tennai2.mp4"></video>
+  <div class="cap">
+    <div class="shop">アジアン雑貨 ルチュ ｜ 奈良・生駒</div>
+    <h1 class="min">ネパールの、<br>あたたかい冬服。</h1>
+  </div>
+</section>
+<main>
+  <p class="lead">ネパールやタイから届いた服と雑貨。柄は1枚ずつちがいます。</p>
+  <section class="how">
+    <h2 class="min">ほしい物があったら</h2>
+    <ol>
+      <li>写真は、指で横にめくると次の写真が見られます</li>
+      <li>色・柄がある服は、ボタンでえらぶ</li>
+      <li>緑の「LINE これ欲しい」を押して、LINEで「送信」</li>
+      <li>お店から返事がきます。取り置きもできます</li>
+    </ol>
+  </section>
+  <div class="ship" id="ship"></div>
+  <div class="note">
+    <h3 class="min">ヤクウール混ってなに？</h3>
+    <p>ヤクは、ネパールなどの寒い高い山にいる牛のなかま。その毛はとてもあたたかいのですが、毛だけで作ると硬くなります。だから、ふんわり柔らかく着られるように、ほかの素材と合わせて作っています。</p>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <input class="search" id="q" type="search" placeholder="名前でさがす（例：ヤク、パンツ、モン族）">
+  <p class="count" id="count"></p>
+  <div id="grid"><p class="loading">商品を読み込んでいます…</p></div>
+  <button class="more" id="more" style="display:none">もっと見る</button>
+  <section class="shopbox">
+    <h2 class="min">お店で待っています</h2>
+    <p>11時〜17時（お休みの日があります）</p>
+    <p>奈良県生駒市高山町10687</p>
+    <p>駐車場あり</p>
+    <a class="btn sub" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%B3%E9%9B%91%E8%B2%A8%20%E3%83%AB%E3%83%81%E3%83%A5&query_place_id=ChIJb69zyCgXAWARwwl3N8wNE1o" target="_blank" rel="noopener">地図を開く</a>
+    <a class="btn sub" href="tel:05018085774">電話する　050-1808-5774</a>
+    <a class="btn line" href="https://line.me/R/ti/p/%40212nahsk" target="_blank" rel="noopener"><span class="ico">LINE</span>ルチュのLINEを友だちに入れる</a>
+  </section>
+</main>
+<footer id="foot">アジアン雑貨ルチュ　20261118-01</footer>
+
+<div class="sheet" id="sheet"><div class="box" id="box">
+  <div class="close"><button id="x" type="button">とじる ×</button></div>
+  <div id="s-gal"></div>
+  <div class="in">
+    <p class="nm min" id="s-nm"></p>
+    <p class="pr" id="s-pr"></p><div id="s-sf"></div>
+    <div id="s-var"></div>
+    <a class="btn line" id="s-line" target="_blank" rel="noopener"><span class="ico">LINE</span>これ欲しい<small>LINEで聞く・取り置き</small></a>
+    <p class="d" id="s-d"></p>
+    <a class="btn sub" id="s-web" target="_blank" rel="noopener">ウェブショップで買う</a>
+    <a class="btn sub" href="tel:05018085774">電話で聞く　050-1808-5774</a>
+  </div>
+</div></div>
+
+<script>
+(function(){
+  var LINE_ID="%40212nahsk", PAGE=10, IMG="https://baseec-img-mng.akamaized.net/images/item/origin/", WEB="https://ajianlucu.thebase.in/items/";
+  var CATS=[["all","すべて"],["pants","パンツ"],["skirt","スカート"],["one","ワンピース"],["tops","上に着る服"],["bag","バッグ"],["goods","小物"],["yak","ヤク"]];
+  var NEWYEAR=new Date("2027-01-01T00:00:00+09:00"), FREE=(new Date()>=NEWYEAR)?10000:8000;
+  var ITEMS=[], list=[], cur="all", shown=PAGE;
+  function yen(n){return n.toLocaleString("ja-JP");}
+  function num(it){return parseInt(String(it.p).replace(/,/g,""),10)||0;}
+  function src(h,w){return IMG+h+"?imformat=generic&q=90&im=Resize,width="+w+",type=normal";}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function shipLine(it){return num(it)>=FREE?'<span class="sf free">送料無料</span>':'<span class="sf">送料600円（小さい物は250円）・'+yen(FREE)+'円以上で無料</span>';}
+  function lineMsg(it,sel){return "【これ欲しい】"+it.n+"（¥"+it.p+"）"+(it.v&&it.v.length?"\n色・柄："+(sel||"まだ決めていません"):"")+"\n（ホームページを見ました）\nまだありますか？";}
+  function lineUrl(it,sel){return "https://line.me/R/oaMessage/"+LINE_ID+"/?"+encodeURIComponent(lineMsg(it,sel));}
+  document.getElementById("ship").innerHTML=FREE===8000?
+    '<p class="t">送料 全国一律600円</p><p class="s">（クリックポストに入る商品は250円）</p><p class="t"><b>8,000円以上のお買い物で<br>送料無料</b></p><p class="s">令和8年12月31日まで。令和9年1月1日からは、1万円以上で送料無料になります。</p>':
+    '<p class="t">送料 全国一律600円</p><p class="s">（クリックポストに入る商品は250円）</p><p class="t"><b>1万円以上のお買い物で<br>送料無料</b></p>';
+
+  function gallery(it,w,eager){
+    var g=document.createElement("div");g.className="gal";var ph=it.ph||[];
+    var html='<div class="strip">';
+    ph.forEach(function(h,i){html+='<img alt="" '+(i===0&&eager?'':'loading="lazy" ')+'src="'+src(h,w)+'">';});
+    html+='</div>';
+    if(it.o)html+='<span class="off">'+esc(it.o)+'%引き</span>';
+    if(ph.length>1)html+='<span class="pc">写真 1 / '+ph.length+'</span><button type="button" class="arw l" aria-label="前の写真">‹</button><button type="button" class="arw r" aria-label="次の写真">›</button>';
+    g.innerHTML=html;
+    var st=g.querySelector(".strip"),pc=g.querySelector(".pc");
+    if(pc){
+      st.addEventListener("scroll",function(){var i=Math.round(st.scrollLeft/st.clientWidth);pc.textContent="写真 "+(i+1)+" / "+ph.length;},{passive:true});
+      g.querySelector(".arw.l").onclick=function(e){e.stopPropagation();st.scrollBy({left:-st.clientWidth,behavior:"smooth"});};
+      g.querySelector(".arw.r").onclick=function(e){e.stopPropagation();st.scrollBy({left:st.clientWidth,behavior:"smooth"});};
+    }
+    return g;
+  }
+  function varBox(it,lineA){
+    var vs=it.v;if(!vs||!vs.length)return null;var w=document.createElement("div");w.className="var";
+    w.innerHTML='<p class="vt">色・柄をえらぶ（'+vs.length+'種類）</p><div class="vb"></div><p class="vn">①②などの番号は、写真や説明に書かれた番号です</p>';
+    var vb=w.querySelector(".vb");
+    vs.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x;
+      b.onclick=function(e){e.stopPropagation();[].forEach.call(vb.children,function(c){c.className=c===b?"on":"";});lineA.href=lineUrl(it,x);};vb.appendChild(b);});
+    return w;
+  }
+  var tabs=document.getElementById("tabs"),q=document.getElementById("q"),grid=document.getElementById("grid");
+  CATS.forEach(function(c){var b=document.createElement("button");b.type="button";b.textContent=c[1];if(c[0]==="all")b.className="on";
+    b.onclick=function(){cur=c[0];shown=PAGE;[].forEach.call(tabs.children,function(x){x.className=x===b?"on":"";});render();};tabs.appendChild(b);});
+  q.addEventListener("input",function(){shown=PAGE;render();});
+  function render(){
+    var k=q.value.trim();
+    list=ITEMS.filter(function(it){
+      if(cur==="yak"){if(!/ヤク/.test(it.n+it.d))return false;}else if(cur!=="all"&&it.c!==cur)return false;
+      return !k||(it.n+" "+it.d).indexOf(k)>=0;});
+    document.getElementById("count").textContent=list.length+"点";
+    grid.innerHTML="";
+    list.slice(0,shown).forEach(function(it){
+      var d=document.createElement("article");d.className="item";
+      d.appendChild(gallery(it,640,true));
+      if((it.ph||[]).length>1){var hn=document.createElement("p");hn.className="hint";hn.textContent="← 指で横にめくると写真が "+it.ph.length+"枚 見られます →";d.appendChild(hn);}
+      var bd=document.createElement("div");bd.className="bd";
+      bd.innerHTML='<p class="nm min"></p><p class="pr"></p>'+shipLine(it);
+      bd.querySelector(".nm").textContent=it.n;bd.querySelector(".pr").textContent="¥"+it.p;
+      var a=document.createElement("a");a.className="btn line";a.target="_blank";a.rel="noopener";a.href=lineUrl(it);
+      a.innerHTML='<span class="ico">LINE</span>これ欲しい<small>LINEで聞く・取り置き</small>';
+      var vb=varBox(it,a);if(vb)bd.appendChild(vb);
+      bd.appendChild(a);
+      var det=document.createElement("button");det.type="button";det.className="btn sub";det.textContent="くわしく見る（サイズ・説明）";det.onclick=function(){open(it);};
+      bd.appendChild(det);d.appendChild(bd);grid.appendChild(d);
+    });
+    document.getElementById("more").style.display=list.length>shown?"block":"none";
+  }
+  document.getElementById("more").onclick=function(){shown+=PAGE;render();};
+  var sheet=document.getElementById("sheet");
+  function open(it){
+    var sg=document.getElementById("s-gal");sg.innerHTML="";sg.appendChild(gallery(it,1080,true));
+    document.getElementById("s-nm").textContent=it.n;
+    document.getElementById("s-pr").textContent="¥"+it.p;
+    document.getElementById("s-sf").innerHTML=shipLine(it);
+    document.getElementById("s-d").textContent=it.d;
+    var sl=document.getElementById("s-line");sl.href=lineUrl(it);
+    var sv=document.getElementById("s-var");sv.innerHTML="";var bx=varBox(it,sl);if(bx)sv.appendChild(bx);
+    document.getElementById("s-web").href=WEB+it.id;
+    sheet.className="sheet open";document.getElementById("box").scrollTop=0;
+  }
+  document.getElementById("x").onclick=function(){sheet.className="sheet";};
+  sheet.onclick=function(e){if(e.target===sheet)sheet.className="sheet";};
+  fetch("data.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(D){
+    ITEMS=D.items||[];document.getElementById("foot").textContent="アジアン雑貨ルチュ　商品は毎日自動で更新（最終 "+D.made+"）　20261118-01";render();
+  }).catch(function(){grid.innerHTML='<p class="loading">読み込めませんでした。少し待ってから、もう一度開いてください。</p>';});
+})();
+</script>
+</body>
+</html>
