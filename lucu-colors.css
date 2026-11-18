@@ -1,0 +1,20 @@
+/* アジアン雑貨ルチュ 6色（LINE登録POPと同じ色）  20261118-01
+   使い方：色を付けたい箱に class="c-main" などを付けるだけ。
+   c-main=カラフル  c-pink=ピンク  c-blue=青  c-yellow=黄  c-green=緑  c-purple=紫
+   中で使える色：--bg(うすい地の色) --dk(濃い色) --sub(濃い色の上の明るい文字)
+                 --a1 --a2 --a3(アクセント3色) --g1〜--g6(しぼり染め) --s1〜--s4(しましま) */
+.c-main  {--bg:#FFF7E8;--dk:#3B1B5A;--sub:#FFD54F;--a1:#C2185B;--a2:#00796B;--a3:#7B1FA2;--g1:#E91E63;--g2:#FF9800;--g3:#FFD54F;--g4:#26A69A;--g5:#3F51B5;--g6:#8E24AA;--s1:#E91E63;--s2:#FFB300;--s3:#00897B;--s4:#8E24AA}
+.c-pink  {--bg:#FFF3F7;--dk:#6A0F3D;--sub:#FFD1E3;--a1:#C2185B;--a2:#AD1457;--a3:#880E4F;--g1:#AD1457;--g2:#E91E63;--g3:#F06292;--g4:#F8BBD0;--g5:#FF7043;--g6:#D81B60;--s1:#AD1457;--s2:#F06292;--s3:#FF8A65;--s4:#D81B60}
+.c-blue  {--bg:#F1F8FF;--dk:#0B2A5B;--sub:#BFE6FF;--a1:#1565C0;--a2:#00838F;--a3:#283593;--g1:#0D47A1;--g2:#1E88E5;--g3:#4FC3F7;--g4:#B3E5FC;--g5:#26C6DA;--g6:#3949AB;--s1:#0D47A1;--s2:#29B6F6;--s3:#00ACC1;--s4:#3949AB}
+.c-yellow{--bg:#FFFBE6;--dk:#5A3600;--sub:#FFE082;--a1:#A85E00;--a2:#8D4E00;--a3:#6D3C00;--g1:#F57F17;--g2:#FBC02D;--g3:#FFEB3B;--g4:#FFF59D;--g5:#FF9800;--g6:#F9A825;--s1:#F9A825;--s2:#FFD54F;--s3:#FB8C00;--s4:#8D5A00}
+.c-green {--bg:#F1FAF5;--dk:#0B3D36;--sub:#C8F2D8;--a1:#2E7D32;--a2:#00796B;--a3:#004D40;--g1:#00695C;--g2:#26A69A;--g3:#80CBC4;--g4:#C5E1A5;--g5:#7CB342;--g6:#00897B;--s1:#00695C;--s2:#4DB6AC;--s3:#7CB342;--s4:#00897B}
+.c-purple{--bg:#F8F2FC;--dk:#3B1B5A;--sub:#E9CCFF;--a1:#9C27B0;--a2:#5E35B1;--a3:#4A148C;--g1:#4A148C;--g2:#8E24AA;--g3:#BA68C8;--g4:#E1BEE7;--g5:#5C6BC0;--g6:#AB47BC;--s1:#6A1B9A;--s2:#BA68C8;--s3:#5C6BC0;--s4:#8E24AA}
+
+/* しぼり染め（POPの上の部分） */
+.tiedye{position:relative;overflow:hidden}
+.tiedye::before{content:"";position:absolute;inset:-60px;background:repeating-radial-gradient(circle at 76% 34%,var(--g1) 0 18px,var(--g2) 0 38px,var(--g3) 0 55px,var(--g4) 0 76px,var(--g5) 0 95px,var(--g6) 0 116px);filter:blur(9px)}
+/* しましま（POPの帯） */
+.stripe{height:12px;background:repeating-linear-gradient(90deg,var(--s1) 0 18px,var(--s2) 0 36px,var(--s3) 0 54px,var(--s4) 0 72px)}
+/* 花もよう（白い線） */
+.md{position:absolute;pointer-events:none;opacity:.85}
+.md svg{display:block;width:100%;height:100%}
