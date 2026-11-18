@@ -16,17 +16,32 @@ if len(live) < 50:
     sys.exit('売っている商品が少なすぎます（%d件）。読み込みに失敗した可能性があるので更新しません' % len(live))
 new = json.load(open(sys.argv[2], encoding='utf-8')) if len(sys.argv) > 2 else []
 have = {i['id']: i for i in data['items']}
+now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
+today = now.strftime('%Y-%m-%d')
+added = []
 for x in new:
     if not x.get('n'): continue
     c = cats.get(x['id']) or guess(x['n']); cats[x['id']] = c
     have[x['id']] = {'id': x['id'], 'n': x['n'], 'p': x['p'], 'o': x.get('off', ''), 'c': c, 'd': x.get('d', ''),
                      'ph': x.get('ph', []), 'v': [re.sub(r'[\s　]+', ' ', s).strip() for s in x.get('v', [])]}
+    if x['id'] not in {i['id'] for i in data['items']}:
+        have[x['id']]['a'] = today   # 載せた日（7日間「NEW」の印が出る）
+        added.append(x['id'])
 missing = [i for i in live if i not in have]
 items = [have[i] for i in live if i in have]
 items.sort(key=lambda i: int(i['id']), reverse=True)
 removed = len(data['items']) - len([i for i in data['items'] if i['id'] in set(live)])
-now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
 data = {'made': now.strftime('%Y-%m-%d %H:%M'), 'items': items}
 json.dump(data, open('data.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 json.dump(cats, open('tools/cats.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-print('掲載', len(items), '件 / 売り切れで外した', removed, '件 / 新しく追加', len(new), '件 / 情報が足りないID', ','.join(missing) or 'なし')
+# 新着のお知らせ用：まだお客様に知らせていない新着をためておく（tools/news.json）
+try: news = json.load(open('tools/news.json', encoding='utf-8'))
+except FileNotFoundError: news = {'last_notice': None, 'pending': []}
+liveset = set(live)
+news['pending'] = [i for i in news['pending'] if i in liveset] + [i for i in added if i not in news['pending']]
+json.dump(news, open('tools/news.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+due = bool(news['pending']) and (not news['last_notice'] or
+      (now.date() - datetime.date.fromisoformat(news['last_notice'])).days >= 7)
+print('掲載', len(items), '件 / 売り切れで外した', removed, '件 / 新しく追加', len(added), '件 / 情報が足りないID', ','.join(missing) or 'なし')
+print('まだ知らせていない新着', len(news['pending']), '件 / 前回のお知らせ', news['last_notice'] or 'まだなし',
+      '/ お知らせの下書きを作る日', 'はい' if due else 'いいえ')

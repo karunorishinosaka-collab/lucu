@@ -62,7 +62,9 @@
   .strip::-webkit-scrollbar{display:none}
   .strip img{flex:0 0 100%;width:100%;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:start;display:block}
   .pc{position:absolute;right:10px;bottom:10px;background:var(--dk);color:#fff;font-size:17px;border-radius:999px;padding:2px 12px;font-weight:700}
-  .off{position:absolute;top:10px;left:10px;background:var(--a1);color:#fff;font-size:17px;font-weight:900;padding:2px 12px;border-radius:999px}
+  .badges{position:absolute;top:10px;left:10px;display:flex;gap:6px}
+  .off{background:var(--a1);color:#fff;font-size:17px;font-weight:900;padding:2px 12px;border-radius:999px}
+  .new{background:#E91E63;color:#fff;font-size:17px;font-weight:900;padding:2px 12px;border-radius:999px;box-shadow:0 0 0 2px #fff}
   .arw{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:3px solid var(--dk);background:rgba(255,255,255,.9);color:var(--dk);font-size:28px;line-height:44px;padding:0;font-family:inherit;font-weight:900}
   .arw.l{left:8px}.arw.r{right:8px}
   .hint{font-size:16px;text-align:center;margin:6px 0 0;font-weight:700;color:var(--a1)}
@@ -188,7 +190,7 @@
   <a class="ig" href="https://www.instagram.com/ajianlucu/" target="_blank" rel="noopener">@ajianlucu</a>
   <a class="btn w" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%B3%E9%9B%91%E8%B2%A8%20%E3%83%AB%E3%83%81%E3%83%A5&query_place_id=ChIJb69zyCgXAWARwwl3N8wNE1o" target="_blank" rel="noopener">地図を開く</a>
   <a class="btn w" href="tel:05018085774">電話する　050-1808-5774</a>
-  <p class="ver" id="foot">アジアン雑貨ルチュ　20261118-04</p>
+  <p class="ver" id="foot">アジアン雑貨ルチュ　20261118-05</p>
 </footer>
 
 <div class="sheet" id="sheet"><div class="box2" id="box">
@@ -208,12 +210,13 @@
 <script>
 (function(){
   var LINE_ID="%40212nahsk", PAGE=10, IMG="https://baseec-img-mng.akamaized.net/images/item/origin/", WEB="https://ajianlucu.thebase.in/items/";
-  var CATS=[["all","すべて","c-main"],["pants","パンツ","c-pink"],["skirt","スカート","c-blue"],["one","ワンピース","c-purple"],["tops","上に着る服","c-green"],["bag","バッグ","c-yellow"],["goods","小物","c-blue"],["yak","ヤク","c-yellow"]];
+  var CATS=[["all","すべて","c-main"],["new","新着","c-pink"],["pants","パンツ","c-pink"],["skirt","スカート","c-blue"],["one","ワンピース","c-purple"],["tops","上に着る服","c-green"],["bag","バッグ","c-yellow"],["goods","小物","c-blue"],["yak","ヤク","c-yellow"]];
   var ROT=["c-pink","c-blue","c-yellow","c-green","c-purple","c-main"], curT="c-main";
   function mandala(){var s='<svg viewBox="-150 -150 300 300" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3"><circle r="22"/><circle r="64"/><circle r="118"/>';for(var a=0;a<360;a+=45)s+='<ellipse cy="-43" rx="13" ry="21" transform="rotate('+a+')"/>';for(a=0;a<360;a+=30)s+='<ellipse cy="-91" rx="17" ry="27" transform="rotate('+a+')"/>';return s+"</g></svg>";}
   [].forEach.call(document.querySelectorAll(".md"),function(e){e.innerHTML=mandala();});
   var NEWYEAR=new Date("2027-01-01T00:00:00+09:00"), FREE=(new Date()>=NEWYEAR)?10000:8000;
   var ITEMS=[], list=[], cur="all", shown=PAGE;
+  function isNew(it){return !!it.a&&(Date.now()-Date.parse(it.a+"T00:00:00+09:00"))<8*86400000;}
   function yen(n){return n.toLocaleString("ja-JP");}
   function num(it){return parseInt(String(it.p).replace(/,/g,""),10)||0;}
   function src(h,w){return IMG+h+"?imformat=generic&q=90&im=Resize,width="+w+",type=normal";}
@@ -231,7 +234,7 @@
     var html='<div class="strip">';
     ph.forEach(function(h,i){html+='<img alt="" '+(i===0&&eager?'':'loading="lazy" ')+'src="'+src(h,w)+'">';});
     html+='</div>';
-    if(it.o)html+='<span class="off">'+esc(it.o)+'%引き</span>';
+    if(isNew(it)||it.o)html+='<div class="badges">'+(isNew(it)?'<span class="new">NEW</span>':'')+(it.o?'<span class="off">'+esc(it.o)+'%引き</span>':'')+'</div>';
     if(ph.length>1)html+='<span class="pc">写真 1 / '+ph.length+'</span><button type="button" class="arw l" aria-label="前の写真">‹</button><button type="button" class="arw r" aria-label="次の写真">›</button>';
     g.innerHTML=html;
     var st=g.querySelector(".strip"),pc=g.querySelector(".pc");
@@ -257,7 +260,7 @@
   function render(){
     var k=q.value.trim();
     list=ITEMS.filter(function(it){
-      if(cur==="yak"){if(!/ヤク/.test(it.n+it.d))return false;}else if(cur!=="all"&&it.c!==cur)return false;
+      if(cur==="yak"){if(!/ヤク/.test(it.n+it.d))return false;}else if(cur==="new"){if(!isNew(it))return false;}else if(cur!=="all"&&it.c!==cur)return false;
       return !k||(it.n+" "+it.d).indexOf(k)>=0;});
     document.getElementById("count").textContent=list.length+"点";
     grid.innerHTML="";
@@ -296,7 +299,7 @@
   document.getElementById("x").onclick=function(){sheet.className="sheet";};
   sheet.onclick=function(e){if(e.target===sheet)sheet.className="sheet";};
   fetch("data.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(D){
-    ITEMS=D.items||[];document.getElementById("foot").textContent="アジアン雑貨ルチュ　商品は毎日自動で更新（最終 "+D.made+"）　20261118-04";render();
+    ITEMS=D.items||[];if(!ITEMS.some(isNew)){var nb=tabs.children[1];if(nb)nb.style.display="none";}document.getElementById("foot").textContent="アジアン雑貨ルチュ　商品は毎日自動で更新（最終 "+D.made+"）　20261118-05";render();
   }).catch(function(){grid.innerHTML='<p class="loading">読み込めませんでした。少し待ってから、もう一度開いてください。</p>';});
 })();
 </script>
