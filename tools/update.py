@@ -40,8 +40,15 @@ except FileNotFoundError: news = {'last_notice': None, 'pending': []}
 liveset = set(live)
 news['pending'] = [i for i in news['pending'] if i in liveset] + [i for i in added if i not in news['pending']]
 json.dump(news, open('tools/news.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-due = bool(news['pending']) and (not news['last_notice'] or
-      (now.date() - datetime.date.fromisoformat(news['last_notice'])).days >= 7)
+# お母さんの希望（20261119）：2週間に1回・新商品が入った時だけ・月曜のお昼12時に送る
+# → 前回のお知らせの週の月曜から2週間後の月曜から送れる
+d = now.date()
+if news['last_notice']:
+    last = datetime.date.fromisoformat(news['last_notice'])
+    next_ok = last - datetime.timedelta(days=last.weekday()) + datetime.timedelta(days=14)
+else:
+    next_ok = d - datetime.timedelta(days=d.weekday())
+due = bool(news['pending']) and d.weekday() == 0 and d >= next_ok
 print('掲載', len(items), '件 / 売り切れで外した', removed, '件 / 新しく追加', len(added), '件 / 情報が足りないID', ','.join(missing) or 'なし')
 print('まだ知らせていない新着', len(news['pending']), '件 / 前回のお知らせ', news['last_notice'] or 'まだなし',
-      '/ お知らせの下書きを作る日', 'はい' if due else 'いいえ')
+      '/ お知らせの下書きを作る日', 'はい' if due else 'いいえ（次に送れる月曜 %s）' % max(next_ok, d + datetime.timedelta(days=(7 - d.weekday()) % 7)))
