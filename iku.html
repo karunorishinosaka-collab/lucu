@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今から行くよ（ご来店前のLINE連絡）｜アジアン雑貨ルチュ</title>
+<meta name="description" content="アジアン雑貨ルチュ（奈良・生駒市高山町）は不定休のお店です。ご来店前に、LINEで「今から行くよ」を押してください。お休みの日はすぐにお返事が届きます。">
+<meta name="theme-color" content="#3B1B5A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lucu-colors.css">
+<style>
+  /* 作成 20261123-01：インスタのプロフィールから開く「今から行くよ」のページ */
+  :root{--green:#06C755}
+  *{box-sizing:border-box}
+  body{margin:0;background:#FFF7E8;color:#3B1B5A;font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;font-size:21px;line-height:1.75;letter-spacing:.02em;font-weight:500}
+  b,strong,h1,h2,h3{font-weight:900}
+  .top{position:relative;overflow:hidden;height:250px;color:#fff}
+  .top .md{width:200px;height:200px;right:-18px;top:-40px}
+  .pill{position:absolute;left:16px;top:18px;background:#fff;color:var(--dk);font-size:18px;font-weight:900;letter-spacing:.06em;padding:4px 16px;border-radius:999px;line-height:1.6}
+  .banner{position:absolute;left:16px;right:16px;bottom:18px;background:var(--dk);border-radius:18px;padding:12px 18px 14px}
+  .banner .sub{font-size:17px;font-weight:700;color:var(--sub);line-height:1.5}
+  .banner h1{margin:2px 0 0;font-size:clamp(34px,10vw,48px);line-height:1.2;color:#fff}
+  main{max-width:640px;margin:0 auto;padding:18px 14px 8px}
+  .box{position:relative;background:#fff;border:4px solid var(--a1);border-radius:18px;padding:16px 16px 18px;margin:0 0 18px;color:var(--dk)}
+  .box h2{margin:0 0 6px;font-size:26px;line-height:1.4;color:var(--a1)}
+  .box p{margin:6px 0}
+  .closed{display:none;background:#C62828;color:#fff;border-radius:18px;padding:16px 18px;margin:0 0 18px;font-size:23px;font-weight:900;line-height:1.6}
+  .closed small{display:block;font-size:19px;font-weight:700}
+  .btn{display:block;text-align:center;text-decoration:none;font-weight:900;border-radius:16px;padding:18px 10px;margin-top:12px;font-size:27px;line-height:1.35;width:100%}
+  .btn.line{background:var(--green);color:#fff}
+  .btn.line small{display:block;font-size:18px;font-weight:700}
+  .btn.sub{background:#fff;color:var(--dk);border:3px solid var(--dk);border-radius:999px;font-size:21px;padding:14px 10px}
+  .how{margin:12px 0 0;padding:0;list-style:none}
+  .how li{display:flex;gap:10px;align-items:flex-start;margin:6px 0}
+  .how .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--a1);color:#fff;font-weight:900;text-align:center;line-height:34px;font-size:19px}
+  .info p{margin:4px 0}
+  .foot{background:var(--dk);color:#fff;text-align:center;padding:20px 14px 26px;margin-top:6px}
+  .foot p{margin:4px 0}
+  .foot .ver{font-size:14px;opacity:.7;margin-top:12px}
+</style>
+</head>
+<body class="c-main">
+<header class="top tiedye c-main">
+  <div class="md"></div>
+  <div class="pill">アジアン雑貨 ルチュ</div>
+  <div class="banner"><div class="sub">ご来店の前に押してください</div><h1>今から行くよ</h1></div>
+</header>
+<div class="stripe c-main"></div>
+<main>
+  <div class="closed" id="closed"></div>
+
+  <section class="box c-pink">
+    <h2>お休みの日がわかります</h2>
+    <p>ルチュは<b>不定休</b>のお店です。都合により、お休みや早じまいの日もあります。</p>
+    <p>せっかく来ていただいたのに閉まっていた…ということがないように、<b>来る前にLINEで知らせてください。</b>お休みの日は、すぐにLINEでお返事が届きます。</p>
+  </section>
+
+  <section class="box c-green">
+    <h2>何時ごろ来ますか？</h2>
+    <a class="btn line" id="t1" target="_blank" rel="noopener">11時ごろ<small>押すとLINEが開きます</small></a>
+    <a class="btn line" id="t2" target="_blank" rel="noopener">12時〜2時ごろ<small>押すとLINEが開きます</small></a>
+    <a class="btn line" id="t3" target="_blank" rel="noopener">2時〜4時ごろ<small>押すとLINEが開きます</small></a>
+    <ol class="how">
+      <li><span class="n">1</span><span>来る時間を押す</span></li>
+      <li><span class="n">2</span><span>LINEが開いたら「送信」を押す</span></li>
+      <li><span class="n">3</span><span>お店からのお返事を見る</span></li>
+    </ol>
+    <p style="font-size:18px">※まちがえて押してしまっても大丈夫です。</p>
+  </section>
+
+  <section class="box c-blue">
+    <h2>うまくいかないときは</h2>
+    <p>先にLINEの友だちに入れてください。</p>
+    <a class="btn line" href="https://line.me/R/ti/p/%40212nahsk" target="_blank" rel="noopener">LINEの友だちに入れる<small>押して「追加」で完了です</small></a>
+    <p style="margin-top:14px">お電話でも大丈夫です。</p>
+    <a class="btn sub" href="tel:05018085774">電話する　050-1808-5774</a>
+  </section>
+
+  <section class="box info c-yellow">
+    <h2>お店のこと</h2>
+    <p>営業時間　<b>11時〜17時</b>（不定休）</p>
+    <p>奈良県生駒市高山町10687</p>
+    <p>駐車場あり</p>
+    <a class="btn sub" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%B3%E9%9B%91%E8%B2%A8%20%E3%83%AB%E3%83%81%E3%83%A5&query_place_id=ChIJb69zyCgXAWARwwl3N8wNE1o" target="_blank" rel="noopener">地図を開く</a>
+  </section>
+
+  <section class="box c-purple">
+    <h2>来られない日も見られます</h2>
+    <p>商品は「ルチュ かんたんLINEショップ」で見られます。登録はいりません。</p>
+    <a class="btn sub" href="./">かんたんLINEショップを見る</a>
+  </section>
+</main>
+<div class="stripe c-main"></div>
+<footer class="foot">
+  <p>アジアン雑貨ルチュ</p>
+  <p class="ver">20261123-01</p>
+</footer>
+<script>
+  function mandala(){var s='<svg viewBox="-150 -150 300 300" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3"><circle r="22"/><circle r="64"/><circle r="118"/>';for(var a=0;a<360;a+=45)s+='<ellipse cy="-43" rx="13" ry="21" transform="rotate('+a+')"/>';for(a=0;a<360;a+=30)s+='<ellipse cy="-91" rx="17" ry="27" transform="rotate('+a+')"/>';return s+"</g></svg>";}
+  [].forEach.call(document.querySelectorAll(".md"),function(e){e.innerHTML=mandala();});
+  // LINEのリッチメニューと同じ言葉（自動のお返事が出る言葉）
+  var ID="%40212nahsk", T={t1:"今日行くよ！11時ごろ",t2:"今日行くよ！12時から2時ごろ",t3:"今日行くよ！2時から4時ごろ"};
+  for(var k in T){document.getElementById(k).href="https://line.me/R/oaMessage/"+ID+"/?"+encodeURIComponent(T[k]);}
+  // お休み・早じまいの日だけ赤いお知らせを出す（status.json の日付が今日のとき）
+  fetch("status.json?"+Date.now()).then(function(r){return r.json()}).then(function(s){
+    var d=new Date(Date.now()+9*3600000).toISOString().slice(0,10);
+    if(s&&s.date===d&&s.msg){var e=document.getElementById("closed");e.innerHTML=s.msg;e.style.display="block";}
+  }).catch(function(){});
+</script>
+</body>
+</html>
